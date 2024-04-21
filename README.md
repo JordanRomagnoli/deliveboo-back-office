@@ -1,61 +1,47 @@
-# Passi da fare per poter utilizzare il template di Laravel
+# DeliveBoo - Descrizione del Progetto
 
-0. Creo la repository a partire dal template e mi clono la repository appena creata
+DeliveBoo un progetto fittizio che io e il mio gruppo di lavoro abbiamo sviluppato durante il corso finale della Tech Academ Boolean. Qui esploreremo le caratteristiche e le funzionalità di questa piattaforma di ordinazione di cibo a domicilio, sviluppata con passione ed impegno.
 
-1. Copio il file .env.example e lo rinomino in .env
+## Introduzione
 
-2. Apro il terminale ed eseguo il comando composer install
+L'obiettivo principale del progetto era sviluppare una web app innovativa per semplificare l'esperienza di ordinare cibo a domicilio. Durante il progetto, abbiamo affrontato sfide complesse e abbiamo collaborato per trasformare un'idea iniziale in una piattaforma completa e funzionale.
 
-3. Sempre nel terminale, al termine del comando composer install, eseguo il comando php artisan key:generate
+## Tipi di Utenti
 
-4. Sempre nel terminale, al termine dell'esecuzione di php artisan key:generate, eseguiamo il comando npm install (oppure, npm i)
+DeliveBoo è stato progettato per accogliere una varietà di utenti, dai semplici visitatori agli imprenditori nel settore della ristorazione. Abbiamo lavorato per garantire un'esperienza intuitiva e personalizzata per ogni tipo di utente.
 
-5. Sempre nel terminale, al termine di npm install, eseguire il comando npm run build
-- Al posto di npm run build, potreste eseguire npm run dev e lasciarlo attivo
+- **Utente Interessato (UI):** Gli utenti non registrati che visitano il sito per esplorare le opzioni di ordinazione disponibili.
+- **Utente Registrato (UR):** I ristoratori che si registrano sulla piattaforma per offrire i propri piatti ai clienti.
 
-6. Aprire un altro terminale ed eseguire il comando php artisan serve
+## Lista delle Pagine
 
+La piattaforma DeliveBoo include diverse pagine chiave progettate per offrire un'esperienza di ordinazione di cibo senza problemi:
 
---------------------------------------------------------------------------------------------
+- **Homepage:** Il punto di ingresso principale della piattaforma, dove gli utenti possono iniziare la loro esperienza di ordinazione.
+- **Pagina Menù Ristoratore Pubblica:** Una pagina dedicata ai menù dei ristoranti, dove gli utenti possono esplorare le opzioni disponibili e aggiungere piatti al carrello.
+- **Pagina Carrello/Checkout:** Una pagina dedicata alla gestione degli ordini e al pagamento sicuro.
+- **Dashboard Utente Registrato:** Un'area riservata ai ristoratori, dove possono gestire il proprio profilo e il menù del ristorante.
+- **Pagina Lista Piatti:** Una pagina di amministrazione per i ristoratori, dove possono visualizzare e gestire i piatti disponibili nel loro menù.
+- **Pagina Piatto:** Una pagina dedicata all'aggiunta di nuovi piatti al menù del ristorante.
+- **Pagina Lista Ordini Ricevuti:** Una pagina per i ristoratori, dove possono visualizzare e gestire gli ordini ricevuti dalla loro attività.
+- **Pagina Statistiche Ordini:** Una pagina per i ristoratori, dove possono monitorare le prestazioni del loro ristorante attraverso grafici e statistiche dettagliate sugli ordini.
 
+## Requisiti Tecnici
 
-# Passi per creare un'architettura CRUD completa
+Durante lo sviluppo di DeliveBoo, abbiamo posto particolare enfasi sull'implementazione di requisiti tecnici che garantissero un'esperienza utente fluida e affidabile. Tra questi:
 
-1. Inseriamo i parametri corretti nel file .env per connetterci al database di interesse
+- **Validazione Client-Side (RT1):** Tutti gli input utente vengono validati sia lato client che lato server per garantire la correttezza dei dati.
+- **Sistema di Pagamento (RT2):** Abbiamo integrato il sistema di pagamento Braintree per gestire in modo sicuro e conveniente le transazioni finanziarie.
+- **Responsiveness (RT3):** Il sito è stato progettato per adattarsi e funzionare correttamente su una vasta gamma di dispositivi, garantendo un'esperienza coerente su desktop e dispositivi mobili.
+- **Ricerca Senza Refresh (RT4):** La funzionalità di ricerca senza ricaricare la pagina migliora l'efficienza e la fluidità della navigazione sulla piattaforma.
 
-2. Creiamo la migration relativa alla risorsa. Il nome della migration sarà: create_NOME_RISORSA_IN_INGLESE_IN_SNAKE_CASE_AL_PLURALE_table (ad es., se la risorsa è libro, il nome della migration sarà create_books_table)
+## Requisiti Funzionali
 
-Una volta create tutte le migration necessarie (oppure per ogni migration), eseguire il comando php artisan migrate 
+DeliveBoo offre una serie di funzionalità progettate per soddisfare le esigenze degli utenti e dei ristoratori:
 
-3. Creiamo il model relativo alla risorsa. Il nome del model sarà: NomeRisorsaInIngleseInPascalCaseAlSingolare (ad es., se la risorsa è libro, il nome del model sarà Book)
-
-4. Creiamo il seeder relativo alla risorsa. Il nome del seeder sarà:
-- NomeDellaTabellaDellaRisorsaInPascalCaseTableSeeder
-- Oppure, NomeDelModelSeeder
-(quindi, ad es., se la mia risorsa è libro, il nome del seeder sarà o BooksTableSeeder, oppure BookSeeder)
-
-Una volta creati tutti i seeder necessari (oppure per ogni seeder), eseguire il comando php artisan db:seed --class=NomeSeeder per ogni seeder
-
-OPPURE
-
-Inserire in DatabaseSeeder la chiamata alla funzione $this->call(ARRAY), dove ARRAY sarà un array contenente tutti i riferimenti alle classi dei seeder da richiamare ed eseguire il comando php artisan db:seed
-
-5. Creiamo il controller relativo alla risorsa. Il nome del controller sarà: NomeDelModelController (ad es., se la risorsa è libro, il nome del controller sarà BookController). Sarebbe ancora meglio creare il controller aggiungendo al comando il flag --resource, in modo da pre-popolare il controller con la definizione di tutte e 7 le funzioni che ci serviranno per le CRUD (cioè, il comando da eseguire sarà: php artisan make:controller NomeController --resource)
-
-6. Definiamo le rotte relative alle funzioni del controller (quindi, 7 rotte). Sarebbe ancora meglio definirle tramite la chiamata al metodo resource di Route (cioè, se voglio definire le rotte relative alla risorsa libro, scriverò: Route::resource('books', BookController::class))
-
-7. Creiamo le view relative alla risorsa. Nello specifico, dobbiamo creare 4 view:
-- Una per l'index
-- Una per lo show
-- Una per il create
-- Una per l'edit
-
-Tutte queste 4 view, saranno messe in una cartella dentro views, nominata come la risorsa al plurale in kebab case (ad es., se la risorsa è mio libro, il nome della cartella sarà my-books). I nomi delle 4 view, solitamente, corrisponderanno al nome della funzione che le restituisce (quindi, index.blade.php per index, show.blade.php per show, create.blade.php per create e edit.blade.php per edit)
-
-# Info utili
-- Comando per tornare indietro di un batch di migration: php artisan migrate:rollback
-- Comando per tornare indietro di tutti i batch di migration: php artisan migrate:reset
-- Comando per eseguire migrate:reset + migrate: php artisan migrate:refresh
-- Comando per eseguire migrate + db:seed: php artisan migrate --seed / php artisan migrate:refresh --seed
-- Comando per vedere la lista delle rotte definite nell'applicazione: php artisan route:list
-- Comando per creare un model, una migration, un seeder e un resource controller tutto insieme: php artisan make:model NomeRisorsa -msr
+- **Registrazione Ristoratori (RF1):** Consentiamo ai ristoratori di registrarsi sulla nostra piattaforma e di creare facilmente il proprio profilo.
+- **Gestione Menù Ristoranti (RF2):** I ristoratori possono aggiungere e gestire i piatti disponibili nel proprio menù con facilità.
+- **Ricerca per Tipologia (RF3):** Gli utenti possono cercare ristoranti in base alle loro preferenze culinarie, semplificando il processo di scelta.
+- **Visualizzazione Menù (RF4):** Gli utenti possono esplorare i menù dei ristoranti e aggiungere i piatti desiderati al carrello senza interruzioni.
+- **Pagamento Sicuro (RF5):** Offriamo un'esperienza di pagamento sicura e conveniente per gli utenti che ordinano cibo attraverso la nostra piattaforma.
+- **Statistiche Ordini (RF6):** I ristoratori possono monitorare le prestazioni del proprio ristorante attraverso statistiche dettagliate sugli ordini ricevuti.
