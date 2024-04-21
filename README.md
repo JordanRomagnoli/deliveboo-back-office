@@ -1,6 +1,6 @@
 # DeliveBoo - Descrizione del Progetto
 
-DeliveBoo un progetto fittizio che io e il mio gruppo di lavoro abbiamo sviluppato durante il corso finale della Tech Academ Boolean. Qui esploreremo le caratteristiche e le funzionalità di questa piattaforma di ordinazione di cibo a domicilio, sviluppata con passione ed impegno.
+DeliveBoo è un progetto fittizio che io e il mio gruppo di lavoro abbiamo sviluppato durante il corso finale della Tech Academ Boolean. Qui esploreremo le caratteristiche e le funzionalità di questa piattaforma di ordinazione di cibo a domicilio, sviluppata con passione ed impegno.
 
 ## Introduzione
 
